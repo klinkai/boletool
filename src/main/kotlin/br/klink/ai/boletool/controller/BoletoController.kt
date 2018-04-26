@@ -53,8 +53,8 @@ class BoletoController {
     @GetMapping("/gerar")
     fun generate(
             @RequestParam("template", required = false) template: String?,
-            @RequestParam("linhadigitavel", required = false) linhaDigitavel: String?,
-            @RequestParam("codigobarras", required = false) codigoBarras: String?,
+            @RequestParam("linhadigitavel", required = true) linhaDigitavel: String,
+            @RequestParam("codigobarras", required = true) codigoBarras: String,
             @RequestParam("banco", required = false) bancoCode: String?,
             @RequestParam("nomebeneficiario", defaultValue = "Klink") nomeBeneficiario: String,
             @RequestParam("nomepagador", required = false) nomePagador: String?,
@@ -81,17 +81,8 @@ class BoletoController {
 
         var boleto = KlinkBoleto()
 
-
-        linhaDigitavel ?: run {
-            return@generate ResponseEntity.badRequest().body(stringToResource("Informe a linha digitavel."))
-        }
-
-        codigoBarras?.let {
-            if (codigoBarras.length%2!=0) {
-                return@generate ResponseEntity.badRequest().body(stringToResource("Codigo de barras invalido ${codigoBarras}. O codigo deve conter um numero par de caracteres."))
-            }
-        } ?: run {
-            return@generate ResponseEntity.badRequest().body(stringToResource("Informe o codigo de barras."))
+        if (codigoBarras.length%2!=0) {
+            return@generate ResponseEntity.badRequest().body(stringToResource("Codigo de barras invalido ${codigoBarras}. O codigo deve conter um numero par de caracteres."))
         }
 
         val venci = vencimento?: LocalDate.now().plusMonths(1)
@@ -117,12 +108,12 @@ class BoletoController {
                 .comEndereco(enderecoBeneficiario)
                 .comNossoNumero(nossoNumero)
                 .comDigitoNossoNumero(digitoNossoNumero)
+                .comCarteira(carteira)
 
 
         codigoBeneficiario?.let { beneficiario = beneficiario.comCodigoBeneficiario(codigoBeneficiario) }
         digitoCodigoBeneficiario?.let { beneficiario = beneficiario.comDigitoCodigoBeneficiario(digitoCodigoBeneficiario) }
         numeroConvenio?.let { beneficiario = beneficiario.comNumeroConvenio(numeroConvenio) }
-        carteira?.let { beneficiario = beneficiario.comCarteira(carteira) }
 
         boleto = boleto.comBeneficiario(beneficiario)
 
