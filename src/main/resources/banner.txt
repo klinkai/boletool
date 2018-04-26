@@ -1,0 +1,10 @@
+  _  ___ _       _
+  | |/ / (_)_ __ | | __
+  | ' /| | | '_ \| |/ /
+  | . \| | | | | |   <
+  |_|\_\_|_|_| |_|_|\_\
+
+${AnsiColor.BRIGHT_RED}Spring Boot Version : ${spring-boot.version} ${spring-boot.formatted-version}
+${AnsiColor.BRIGHT_CYAN}RBrasil Admin   : 1.0.0
+${AnsiColor.BRIGHT_BLACK}Author: Fabio Covolo Mazzo
+
