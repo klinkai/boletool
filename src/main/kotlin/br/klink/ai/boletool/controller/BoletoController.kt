@@ -60,6 +60,7 @@ class BoletoController {
             @RequestParam("nomepagador", required = false) nomePagador: String?,
             @RequestParam("enderecopagador", required = false) enderecoPagador: String?,
             @RequestParam("cpfpagador", required = false) cpfPagador: String?,
+            @RequestParam("contrato", required = false) contrato: String?,
             @RequestParam("agencia", defaultValue = "0000") agencia: String,
             @RequestParam("digitoagencia", defaultValue = "0") digitoAgencia: String,
             @RequestParam("imagemcapa", required = false) imagemCapa: String?,
@@ -141,6 +142,8 @@ class BoletoController {
 
         boleto = boleto.comValorBoleto(valor)
                 .comNumeroDoDocumento(numeroDocumento)
+
+        boleto.contrato = contrato ?: ""
 
         val gerador = template?.let {
             try {
