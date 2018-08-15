@@ -1,7 +1,9 @@
 package br.klink.ai.boletool.dto
 
 import br.com.caelum.stella.boleto.*
+import br.com.sales4you.integrator.mfm.dto.ContratoOriginal
 import java.math.BigDecimal
+import java.time.LocalDate
 
 class KlinkBoleto : Boleto() {
 
@@ -21,6 +23,16 @@ class KlinkBoleto : Boleto() {
 
     var logoImage = ""
 
+    var codigoDevedor = ""
+
+    var credor = ""
+
+    var nrParcela = ""
+
+    var contratoOriginal = ContratoOriginal()
+
+    var dtAcordo = ""
+
     fun comImagemCapa(url: String): KlinkBoleto {
         coverImage = url
         return this
@@ -38,6 +50,31 @@ class KlinkBoleto : Boleto() {
 
     fun comCodigoBarras(codigoBarras: String): KlinkBoleto {
         codigodeBarrasPersonalizado = codigoBarras
+        return this
+    }
+
+    fun comCodigoDevedor(codigoDevedor : String) : KlinkBoleto {
+        this.codigoDevedor = codigoDevedor
+        return this
+    }
+
+    fun comCredor(credor : String) : KlinkBoleto {
+        this.credor = credor
+        return this
+    }
+
+    fun comNrParcela(nrParcela : String) : KlinkBoleto {
+        this.nrParcela = nrParcela
+        return this
+    }
+
+    fun comContratoOriginal(contratoOriginal: ContratoOriginal) : KlinkBoleto {
+        this.contratoOriginal = contratoOriginal
+        return this
+    }
+
+    fun comDtAcordo(dtAcordo : String) : KlinkBoleto {
+        this.dtAcordo = dtAcordo
         return this
     }
 
@@ -78,5 +115,4 @@ class KlinkBoleto : Boleto() {
         this.numeroDocumento = numeroDocumento
         return this
     }
-
 }

@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="boleto-net-mfm" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f9ff3ab6-8471-4848-8721-4c0ab8f22438">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="183"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/Users/pc/Documents/Sales4You/boletool/src/main/resources/templates/"]]></defaultValueExpression>
+	</parameter>
+	<field name="nomePagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.nome]]></fieldDescription>
+	</field>
+	<field name="vencimento" class="java.util.Calendar">
+		<fieldDescription><![CDATA[datas.vencimento]]></fieldDescription>
+	</field>
+	<field name="valorCobrado" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorCobrado]]></fieldDescription>
+	</field>
+	<field name="logradouroPagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.endereco.logradouro]]></fieldDescription>
+	</field>
+	<field name="documentoPagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.documento]]></fieldDescription>
+	</field>
+	<field name="cepPagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.endereco.cep]]></fieldDescription>
+	</field>
+	<field name="cidadePagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.endereco.cidade]]></fieldDescription>
+	</field>
+	<field name="ufPagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.endereco.uf]]></fieldDescription>
+	</field>
+	<field name="linhaDigitavel" class="java.lang.String">
+		<fieldDescription><![CDATA[linhaDigitavel]]></fieldDescription>
+	</field>
+	<field name="codigoDeBarras" class="java.lang.String">
+		<fieldDescription><![CDATA[codigoDeBarras]]></fieldDescription>
+	</field>
+	<field name="contrato" class="java.lang.String"/>
+	<field name="credor" class="java.lang.String"/>
+	<field name="codigoDevedor" class="java.lang.String"/>
+	<field name="nrParcela" class="java.lang.String"/>
+	<field name="valoresContratoOriginal" class="java.util.List">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.valoresContratoOriginal]]></fieldDescription>
+	</field>
+	<field name="totalOriginal" class="java.lang.String">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.totalOriginal]]></fieldDescription>
+	</field>
+	<field name="totalNegociado" class="java.lang.String">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.totalNegociado]]></fieldDescription>
+	</field>
+	<field name="originalTotal" class="java.lang.String">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.originalTotal]]></fieldDescription>
+	</field>
+	<field name="parcelasAcordo" class="java.util.List">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.parcelasAcordo]]></fieldDescription>
+	</field>
+	<field name="parcelaTotalParcela" class="java.lang.String">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.parcelaTotalParcela]]></fieldDescription>
+	</field>
+	<field name="parcelaTotalIOF" class="java.lang.String">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.parcelaTotalIOF]]></fieldDescription>
+	</field>
+	<field name="parcelaTotal" class="java.lang.String">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.parcelaTotal]]></fieldDescription>
+	</field>
+	<field name="parcelaTotalSaldo" class="java.lang.String">
+		<fieldDescription><![CDATA[contratoOriginal.demonstrativo.parcelaTotalSaldo]]></fieldDescription>
+	</field>
+	<field name="dtAcordo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="582" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="138" height="49" uuid="40c13915-e8ef-4f72-866e-dda3113689f1"/>
+				<imageExpression><![CDATA["/Users/pc/Documents/Sales4You/boletool/src/main/resources/logo_net_fb.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="49" width="555" height="15" uuid="0cd9e146-0e1c-4131-a25c-1495db0a2299"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomePagador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="64" width="555" height="15" uuid="1a71ffc5-7320-4adb-838f-0f31c004a92b"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{logradouroPagador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="79" width="555" height="15" uuid="dde5df47-7462-4a31-953c-9885b3099319"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidadePagador} + " - " + $F{ufPagador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="94" width="555" height="15" uuid="ae1514d8-2097-4e52-bea8-f385813116c7"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CEP: " + $F{cepPagador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="118" width="173" height="20" uuid="da503ac0-e510-4625-af1f-92414b15ea32"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contrato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="118" width="101" height="20" backcolor="#CCCCCC" uuid="6eabadd9-2069-4d41-abe1-83a5dc43208d"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTRATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="138" width="101" height="20" backcolor="#CCCCCC" uuid="5bfcc0b3-bb34-42fb-bed6-794016b3bcb5"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CREDOR]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="101" y="138" width="173" height="20" uuid="4474afbe-9185-45c5-a2af-d87d5e030286"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{credor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="274" y="118" width="101" height="20" backcolor="#CCCCCC" uuid="852576fc-909c-4716-8a0d-fad987ca02eb"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="274" y="138" width="101" height="20" backcolor="#CCCCCC" uuid="e06e0054-fd81-430a-ace4-69004fd89f70"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SENHA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="375" y="138" width="180" height="20" uuid="dde962e0-a094-4977-84f1-f2255a616066"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoDevedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="118" width="180" height="20" uuid="4c2a624a-9278-4b8a-8ce4-d14920132cb8"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{documentoPagador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="226" width="555" height="20" uuid="8716a6da-ed6a-4e43-873f-3c295feca675"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Pague sua(s) parcela(s) em dia e em caso de dúvida entre em contato conosco através do(s) telefone(s), que teremos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="246" width="555" height="20" uuid="b6b64044-72fe-4d3c-92f4-6535c2a2f9e3"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[a maior satisfação em atendê-lo]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="0" y="266" width="555" height="20" uuid="6c0b2820-34cf-4069-bf7c-a9c9b0962f69"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O PAGAMENTO DESTE BOLETO QUITA A PARCELA Nº" + $F{nrParcela} + " DO ACORDO"]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="171" width="275" height="48" uuid="546e72dd-3f6f-47c9-a475-ebf655edc7ba"/>
+				<subreportParameter name="ORIGINAL_TOTAL">
+					<subreportParameterExpression><![CDATA[$F{originalTotal}.substring(0, $F{originalTotal}.length() - 2)]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TOTAL_ORIGINAL">
+					<subreportParameterExpression><![CDATA[$F{totalOriginal}.substring(0, $F{totalOriginal}.length() - 2)]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TOTAL_NEGOCIADO">
+					<subreportParameterExpression><![CDATA[$F{totalNegociado}.substring(0, $F{totalNegociado}.length() - 2)]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{valoresContratoOriginal})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "boleto-net-mfm-parcela1_subreport_valores_contrato.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="280" y="171" width="275" height="48" uuid="b90df123-b6c6-422d-a112-2e3e99172cd3"/>
+				<subreportParameter name="DT_ACORDO">
+					<subreportParameterExpression><![CDATA[$F{dtAcordo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TOTAL_PARCELA">
+					<subreportParameterExpression><![CDATA[$F{parcelaTotalParcela}.substring(0, $F{parcelaTotalParcela}.length() - 2)]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TOTAL_SALDO">
+					<subreportParameterExpression><![CDATA[$F{parcelaTotalSaldo}.substring(0, $F{parcelaTotalSaldo}.length() - 2)]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TOTAL_IOF">
+					<subreportParameterExpression><![CDATA[$F{parcelaTotalIOF}.substring(0, $F{parcelaTotalIOF}.length() - 2)]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TOTAL">
+					<subreportParameterExpression><![CDATA[$F{parcelaTotal}.substring(0, $F{parcelaTotal}.length() - 2)]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{parcelasAcordo})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "boleto-net-mfm-parcela1_subreport_acordo.jasper"]]></subreportExpression>
+			</subreport>
+			<elementGroup/>
+			<frame>
+				<reportElement positionType="Float" x="0" y="292" width="555" height="290" uuid="cf159249-7d8b-49c9-a8da-c70f0e5632cb"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<line>
+					<reportElement x="14" y="24" width="527" height="1" uuid="0be81ec5-86c2-499c-94df-243cdf5b0587"/>
+					<graphicElement>
+						<pen lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement positionType="Float" x="11" y="122" width="100" height="20" uuid="2c1bfef4-25fc-43e3-a535-533164df85a1"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{contrato}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="11" y="102" width="100" height="20" uuid="d7836f44-75c1-4888-aaa6-2668afa3b9ac"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Contrato do Cliente]]></text>
+				</staticText>
+				<line>
+					<reportElement positionType="Float" x="120" y="234" width="5" height="1" uuid="e1be9ed7-606b-4dec-ac4d-2e035148a16b"/>
+				</line>
+				<staticText>
+					<reportElement positionType="Float" x="123" y="69" width="13" height="165" uuid="e18fe431-f6b1-4721-b865-ec0d335277e3"/>
+					<textElement textAlignment="Center" rotation="Left">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Autenticação Mecânica]]></text>
+				</staticText>
+				<line>
+					<reportElement positionType="Float" x="120" y="64" width="6" height="1" uuid="ff0bb7aa-81c2-4bcb-80d4-72f598f808bc"/>
+				</line>
+				<line>
+					<reportElement positionType="Float" x="120" y="64" width="1" height="170" uuid="efe6e8ec-3fae-4af6-9eef-23a0114e2cc9"/>
+				</line>
+				<textField pattern="R$ ###0.00">
+					<reportElement positionType="Float" x="10" y="176" width="100" height="20" uuid="90af151e-14d5-4758-8074-f83e68819a26"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valorCobrado}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="10" y="156" width="100" height="20" uuid="01fa4331-70d1-48cd-8992-3390b3c6d9a5"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Valor a pagar (R$)]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="186" y="216" width="355" height="18" uuid="c1eeb15b-84e9-41ba-a2e1-6add1f588f86"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{linhaDigitavel}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="164" y="69" width="13" height="165" uuid="e706bdcb-983e-4c3a-a201-17f5cdcd3f95"/>
+					<textElement textAlignment="Center" rotation="Left">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Destaque aqui]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="186" y="166" width="138" height="20" uuid="75a2a58a-f948-4f87-bf3a-d7f452547ca3"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Contrato do Cliente]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="186" y="186" width="138" height="20" uuid="5c0b1aa7-38d8-42f7-bff0-6703c8160809"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{contrato}]]></textFieldExpression>
+				</textField>
+				<textField pattern="R$ ###0.00">
+					<reportElement positionType="Float" x="334" y="186" width="138" height="20" uuid="5b88fffa-2ca4-48f4-b94c-2d1fb3f36f7a"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valorCobrado}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="334" y="166" width="138" height="20" uuid="b84fb8d5-dfed-4890-9999-cb967d4e9ae8"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Valor a pagar (R$)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="184" y="142" width="367" height="20" uuid="97ec36d3-e433-42c7-bd5b-a3e31c090c20"/>
+					<box leftPadding="10"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<text><![CDATA[Autenticação Mecânica - Solicitamos não rassurar, dobrar ou perfurar essa parte.]]></text>
+				</staticText>
+				<image>
+					<reportElement positionType="Float" x="186" y="32" width="138" height="49" uuid="11187bf4-b501-4bb7-91c0-5a3a6da897d2"/>
+					<imageExpression><![CDATA["/Users/pc/Documents/Sales4You/boletool/src/main/resources/logo_net_fb.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement positionType="Float" x="184" y="95" width="138" height="20" uuid="8068d8d1-02de-4ce7-a000-06432f9097e7"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Nome do Cliente]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" x="184" y="115" width="138" height="20" uuid="084225de-7581-4c93-aee1-ce7f1010abbc"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nomePagador}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement positionType="Float" x="334" y="115" width="92" height="20" uuid="15426a2e-e7d3-4ddc-809e-2705c2754700"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vencimento}.getTime()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="334" y="95" width="92" height="20" uuid="72b69bc5-4692-441b-a7c8-8bb3f3d75bab"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Vencimento]]></text>
+				</staticText>
+				<line>
+					<reportElement positionType="Float" x="162" y="37" width="1" height="248" uuid="4aaffb3d-a129-49b7-b4c7-6a90d67d738f"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement positionType="Float" x="334" y="32" width="180" height="20" uuid="0ab18ac4-ce5b-4059-a892-6a48479d4584"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Documento para pagamento]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement positionType="Float" x="186" y="235" width="355" height="50" uuid="bebc4b25-3834-4e86-a20f-2441f00bab03"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Int2of5" drawText="false" checksumRequired="false">
+						<jr:codeExpression><![CDATA[$F{codigoDeBarras}]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="555" height="20" forecolor="#FF0000" uuid="b484678b-1db6-458c-8a9e-3d73a74c969f"/>
+					<box>
+						<pen lineWidth="0.75" lineColor="#000000"/>
+						<topPen lineWidth="0.75" lineColor="#000000"/>
+						<leftPen lineWidth="0.75" lineColor="#000000"/>
+						<bottomPen lineWidth="0.75" lineColor="#000000"/>
+						<rightPen lineWidth="0.75" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Boleto no modelo arrecadação (Igual conta de consumo: água, luz e telefone)]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>
