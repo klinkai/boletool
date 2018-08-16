@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96d1c617-b9d4-462c-ae9c-e46bbfd6af28" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/klink/ai/boletool/controller/BoletoController.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/br/klink/ai/boletool/controller/BoletoController.kt" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/boleto-net-mfm-parcela1.jasper" afterPath="$PROJECT_DIR$/src/main/resources/templates/boleto-net-mfm-parcela1.jasper" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/boleto-net-mfm-parcela1.jrxml" afterPath="$PROJECT_DIR$/src/main/resources/templates/boleto-net-mfm-parcela1.jrxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/boleto-net-mfm.jasper" afterPath="$PROJECT_DIR$/src/main/resources/templates/boleto-net-mfm.jasper" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/boleto-net-mfm.jrxml" afterPath="$PROJECT_DIR$/src/main/resources/templates/boleto-net-mfm.jrxml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +18,7 @@
       <file leaf-file-name="BoletoController.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/klink/ai/boletool/controller/BoletoController.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1934">
+            <state relative-caret-position="-1930">
               <caret line="111" column="34" lean-forward="true" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
               <folding>
                 <element signature="e#41#1464#0" expanded="true" />
@@ -280,6 +276,14 @@
             </path>
             <path>
               <item name="boletool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="boletool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="boletool" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -455,16 +459,15 @@
       <workItem from="1534277463096" duration="16000" />
       <workItem from="1534300156657" duration="6196000" />
       <workItem from="1534353622761" duration="314000" />
-      <workItem from="1534429413771" duration="907000" />
+      <workItem from="1534429413771" duration="2836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44070000" />
+    <option name="totallyTimeSpent" value="45999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -475,7 +478,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286445" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286445" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -895,7 +898,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/klink/ai/boletool/controller/BoletoController.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1934">
+        <state relative-caret-position="-1930">
           <caret line="111" column="34" lean-forward="true" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
           <folding>
             <element signature="e#41#1464#0" expanded="true" />

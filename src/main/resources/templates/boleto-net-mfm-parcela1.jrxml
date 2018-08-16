@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["/Users/pc/Documents/Sales4You/boletool/src/main/resources/templates/"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["templates/"]]></defaultValueExpression>
 	</parameter>
 	<field name="nomePagador" class="java.lang.String">
 		<fieldDescription><![CDATA[pagador.nome]]></fieldDescription>
@@ -257,7 +257,7 @@
 					<subreportParameterExpression><![CDATA[$F{totalNegociado}.substring(0, $F{totalNegociado}.length() - 2)]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{valoresContratoOriginal})]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "boleto-net-mfm-parcela1_subreport_valores_contrato.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "./boleto-net-mfm-parcela1_subreport_valores_contrato.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
 				<reportElement x="280" y="171" width="275" height="48" uuid="b90df123-b6c6-422d-a112-2e3e99172cd3"/>
@@ -277,7 +277,7 @@
 					<subreportParameterExpression><![CDATA[$F{parcelaTotal}.substring(0, $F{parcelaTotal}.length() - 2)]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{parcelasAcordo})]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "boleto-net-mfm-parcela1_subreport_acordo.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "./boleto-net-mfm-parcela1_subreport_acordo.jasper"]]></subreportExpression>
 			</subreport>
 			<elementGroup/>
 			<frame>
