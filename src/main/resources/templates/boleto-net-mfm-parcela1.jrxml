@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="boleto-net-mfm" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f9ff3ab6-8471-4848-8721-4c0ab8f22438">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="183"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["/Users/pc/Documents/Sales4You/boletool/src/main/resources/templates/"]]></defaultValueExpression>
 	</parameter>
@@ -75,7 +75,7 @@
 		<band height="582" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="138" height="49" uuid="40c13915-e8ef-4f72-866e-dda3113689f1"/>
-				<imageExpression><![CDATA["/Users/pc/Documents/Sales4You/boletool/src/main/resources/logo_net_fb.png"]]></imageExpression>
+				<imageExpression><![CDATA["logo_net_fb.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="0" y="49" width="555" height="15" uuid="0cd9e146-0e1c-4131-a25c-1495db0a2299"/>
@@ -445,7 +445,7 @@
 				</staticText>
 				<image>
 					<reportElement positionType="Float" x="186" y="32" width="138" height="49" uuid="11187bf4-b501-4bb7-91c0-5a3a6da897d2"/>
-					<imageExpression><![CDATA["/Users/pc/Documents/Sales4You/boletool/src/main/resources/logo_net_fb.png"]]></imageExpression>
+					<imageExpression><![CDATA["logo_net_fb.png"]]></imageExpression>
 				</image>
 				<staticText>
 					<reportElement positionType="Float" x="184" y="95" width="138" height="20" uuid="8068d8d1-02de-4ce7-a000-06432f9097e7"/>

@@ -93,7 +93,8 @@ class BoletoController {
         var boleto = KlinkBoleto()
 
         if (codigoBarras.length%2!=0) {
-            return@generate ResponseEntity.badRequest().body(stringToResource("Codigo de barras invalido ${codigoBarras}. O codigo deve conter um numero par de caracteres."))
+            return@generate ResponseEntity.badRequest()
+                    .body(stringToResource("Codigo de barras invalido ${codigoBarras}. O codigo deve conter um numero par de caracteres."))
         }
 
         val venci = vencimento?: LocalDate.now().plusMonths(1)
