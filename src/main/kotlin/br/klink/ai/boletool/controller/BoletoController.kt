@@ -11,6 +11,7 @@ import br.com.caelum.stella.boleto.bancos.Itau
 import br.com.caelum.stella.boleto.transformer.GeradorDeBoleto
 import br.klink.ai.boletool.EmailServiceImpl
 import br.klink.ai.boletool.client.MFMClient
+import br.klink.ai.boletool.dto.BoletoMFMResult
 import br.klink.ai.boletool.dto.KlinkBoleto
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -18,6 +19,7 @@ import org.springframework.core.io.ClassPathResource
 import org.springframework.core.io.InputStreamResource
 import org.springframework.core.io.Resource
 import org.springframework.format.annotation.DateTimeFormat
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.util.StringUtils
@@ -201,10 +203,11 @@ class BoletoController {
             @RequestParam("codparcelaacordo", required = false) codParcelaAcordo : String?,
             @RequestParam("codacordo", required = false) codAcordo : String?,
             @RequestParam("dtacordo", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) dtAcordo: LocalDate?,
-            @RequestParam("email", required = false) email : String?) : ResponseEntity<Resource> {
+            @RequestParam("email", required = false) email : String?) : BoletoMFMResult {
 
         var boleto = KlinkBoleto()
         var pdfStream : InputStream? = null
+        var result = BoletoMFMResult()
         boleto.comCredor(credor)
         boleto.comCodigoDevedor(codigoDevedor)
         boleto.comNrParcela(nrParcela)
@@ -264,7 +267,6 @@ class BoletoController {
             }
 
             pdfStream = gerador.geraPDFStream()
-            val resource = InputStreamResource(pdfStream)
             val filename = "Boleto_" + contrato + "_parc_" + nrParcela + ".pdf"
 
 
@@ -281,16 +283,18 @@ class BoletoController {
 
             emailSender.sendSimpleMessage(recipient!!, subject, text, targetFile, filename)
 
-            return ResponseEntity.ok()
-                    .header("Content-Disposition", "filename=\"${filename}\"\n")
-                    .contentType(MediaType.parseMediaType("application/pdf"))
-                    .body(resource)
+            result.linhaDigitavel = linhaDigitavel
+            result.msg = "Boleto enviado para o e-mail " + recipient
+
         } catch (e: Exception) {
             val sw = StringWriter()
+            result.status = HttpStatus.INTERNAL_SERVER_ERROR.value()
+            result.msg = e.message
             e.printStackTrace(PrintWriter(sw))
-            return ResponseEntity.badRequest().body(stringToResource(sw.toString()))
         } finally {
             pdfStream?.close()
         }
+
+        return result
     }
 }
