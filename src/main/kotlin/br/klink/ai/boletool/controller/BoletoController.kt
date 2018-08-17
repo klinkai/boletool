@@ -203,7 +203,8 @@ class BoletoController {
             @RequestParam("codparcelaacordo", required = false) codParcelaAcordo : String?,
             @RequestParam("codacordo", required = false) codAcordo : String?,
             @RequestParam("dtacordo", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) dtAcordo: LocalDate?,
-            @RequestParam("email", required = false) email : String?) : BoletoMFMResult {
+            @RequestParam("email", required = false) email : String?,
+            @RequestParam("produto", required = true) produto : String) : BoletoMFMResult {
 
         var boleto = KlinkBoleto()
         var pdfStream : InputStream? = null
@@ -267,7 +268,7 @@ class BoletoController {
             }
 
             pdfStream = gerador.geraPDFStream()
-            val filename = "Boleto_" + contrato + "_parc_" + nrParcela + ".pdf"
+            val filename = "Boleto_" + produto + "_parc_" + nrParcela + ".pdf"
 
 
             val targetFile = File("/tmp/" + filename)
@@ -278,8 +279,9 @@ class BoletoController {
                     StandardCopyOption.REPLACE_EXISTING);
 
             val recipient = if (StringUtils.isEmpty(defaultRecipient)) email else defaultRecipient
-            val subject = "Boleto NET - Acordo Contrato " + contrato + " - Parcela " + nrParcela
-            val text = "Olá, " + nomePagador + "\n\nSegue em anexo o boleto referente à parcela " + nrParcela + " do seu acordo.\n\nAtenciosamente,\nIvonete - Negocia Fácil"
+
+            val subject = "Boleto NET - Acordo " + produto + " - Parcela " + nrParcela
+            val text = "Olá, " + nomePagador + "\n\nSegue em anexo o boleto da parcela " + nrParcela + " referente ao acordo do " + produto + ".\n\nAtenciosamente,\nIvonete - Negocia Fácil"
 
             emailSender.sendSimpleMessage(recipient!!, subject, text, targetFile, filename)
 
